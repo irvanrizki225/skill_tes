@@ -45,7 +45,6 @@
             <div class="card">
                 <div class="card-header">
                     Persentase Complaint Area And Brand
-                    <br>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -64,7 +63,7 @@
                             for ($i=0; $i < count($brand) ; $i++) { 
                                 echo '<tr>';
                                 echo '<td>'.$persentase_brand[0][$i]['brand']. '</td>';
-                                echo '<td>'.$persentase_brand[0][$i]['DKI jakarta']. '</td>';
+                                echo '<td>'.$persentase_brand[0][$i]['DKI Jakarta']. '</td>';
                                 echo '<td>'.$persentase_brand[0][$i]['Jawa Barat']. '</td>';
                                 echo '<td>'.$persentase_brand[0][$i]['Kalimantan']. '</td>';
                                 echo '<td>'.$persentase_brand[0][$i]['Jawa Tengah']. '</td>';
@@ -98,13 +97,14 @@
             datasets: [{
                 label: '# of Votes',
                 data: [
-                    @php
-                        foreach ($persentase as $item => $value) {
-                            echo round($value,1);
+                    @for ($i = 0; $i < count($persentase[0]); $i++)
+                        @php
+                            echo $persentase[0][$i];
                             echo ',';
-                        }   
-                    @endphp
-                    ],
+                        @endphp
+                        
+                    @endfor
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

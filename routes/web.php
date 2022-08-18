@@ -15,4 +15,4 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/cari', [HomeController::class, 'hasil']);
+Route::get('/cari', [HomeController::class, 'cari'])->name('cari');
